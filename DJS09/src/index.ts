@@ -1,7 +1,8 @@
-const propertyContainer = document.querySelector('.properties ')
+const propertyContainer = document.querySelector('.properties ') as HTMLElement
+const footer = document.querySelector('.footer')
 
 import { showReviewTotal, populateUser } from './utils'
-// let isOpen: boolean
+/* let isOpen: boolean */
 
 // Reviews
 const reviews : { 
@@ -56,7 +57,7 @@ const properties : {
         code: number;
         country: string;
     };
-    contact_details: string;
+    contact_details: [number, string];
     isAvailable: boolean; 
 }[] = [
     {
@@ -69,7 +70,7 @@ const properties : {
             code: 45632,
             country: 'Colombia'
         },
-        contact_details: 'marywinkle@gmail.com',
+        contact_details: [+1123495082908, 'marywinkle@gmail.com'],
         isAvailable: true  
     },
     {
@@ -82,7 +83,7 @@ const properties : {
             code: 343903,
             country: 'Poland'
         },
-        contact_details: 'garydavis@hotmail.com',
+        contact_details: [+1123495082908, 'garydavis@hotmail.com'],
         isAvailable: false 
     },
     {
@@ -95,7 +96,7 @@ const properties : {
             code: 35433,
             country: 'United Kingdom',
         },
-        contact_details: 'andyluger@aol.com',
+        contact_details: [+1123495082908, 'andyluger@aol.com'],
         isAvailable: true
     }
 ]
@@ -107,11 +108,15 @@ populateUser(you.isReturning, you.firstName)
 
 //add the properties
 for (let i = 0; i <properties.length; i++) {
-const card = document.createElement('div')
-card.classList.add('card')
-card.innerHTML = properties[i].title
-const image = document.createElement('img')
-image.setAttribute('src', properties[i].image)
-card.appendChild(image)
-propertyContainer.appendChild(card)
+    const card = document.createElement('div')
+    card.classList.add('card')
+    card.innerHTML = properties[i].title
+    const image = document.createElement('img')
+    image.setAttribute('src', properties[i].image)
+    card.appendChild(image)
+    propertyContainer.appendChild(card)
 }
+
+//footer details
+const currentLocation: [string, string, number]  = ["Polokwane", '10:56', 23]
+footer.innerHTML = currentLocation[0] +' '+ currentLocation[1] + ' ' + currentLocation[2]

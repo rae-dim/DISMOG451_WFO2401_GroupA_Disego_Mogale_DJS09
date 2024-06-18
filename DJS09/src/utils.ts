@@ -1,6 +1,6 @@
-const reviewTotalDisplay = document.querySelector('#reviews')
-const returningUserDisplay = document.querySelector('#returning-user')
-const userNameDisplay = document.querySelector('#user')
+const reviewTotalDisplay = document.querySelector('#reviews') as HTMLElement
+const returningUserDisplay = document.querySelector('#returning-user') as HTMLElement
+const userNameDisplay = document.querySelector('#user') as HTMLElement
 
 export function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
     const iconDisplay = isLoyalty ? '⭐' : ''
@@ -8,7 +8,7 @@ export function showReviewTotal(value: number, reviewer: string, isLoyalty: bool
 }
 
 export function populateUser(isReturning : boolean, userName: string ) {
-    if (isReturning == true){
+    if (isReturning){
         returningUserDisplay.innerHTML = 'back'
     }
     userNameDisplay.innerHTML = userName
