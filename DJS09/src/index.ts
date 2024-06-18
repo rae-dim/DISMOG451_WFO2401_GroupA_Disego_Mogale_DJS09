@@ -1,32 +1,35 @@
 const propertyContainer = document.querySelector('.properties ') as HTMLElement
-const footer = document.querySelector('.footer')
+const footer = document.querySelector('.footer') as HTMLElement
 
 import { showReviewTotal, populateUser } from './utils'
-/* let isOpen: boolean */
+import { Permissions, LoyaltyUser } from './enoms' 
+let isOpen: boolean
+
+
 
 // Reviews
 const reviews : { 
     name: string; 
     stars: number; 
-    loyaltyUser: boolean; 
+    loyaltyUser: LoyaltyUser; 
     date: string
     }[] = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 3,
-        loyaltyUser: false,
+        loyaltyUser: LoyaltyUser.BRONZE_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '27-03-2021'
     },
 ]
@@ -120,3 +123,4 @@ for (let i = 0; i <properties.length; i++) {
 //footer details
 const currentLocation: [string, string, number]  = ["Polokwane", '10:56', 23]
 footer.innerHTML = currentLocation[0] +' '+ currentLocation[1] + ' ' + currentLocation[2]
+footer.classList.add('footer')
